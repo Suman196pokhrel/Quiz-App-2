@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import QuizCarousal from "../components/QuizCarousal";
+
 
 export default function Home() {
   return (
     <div>
-          
+          <QuizCarousal />
     </div>
   )
 }
