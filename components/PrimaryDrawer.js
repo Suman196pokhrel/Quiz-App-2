@@ -1,8 +1,10 @@
-import { Divider, Drawer, IconButton, List,ListItem, ListItemButton , ListItemText} from '@mui/material'
+import { Drawer, IconButton, List,ListItem, ListItemButton , ListItemText} from '@mui/material'
 import React from 'react'
-import {styled,useTheme} from '@mui/material/styles'
-import {Close, Inbox,Mail, Home, Psychology, Settings} from '@mui/icons-material'
+import {styled} from '@mui/material/styles'
+import {Close,  Home, Psychology, Settings} from '@mui/icons-material'
 import ListItemIcon from '@mui/material/ListItemIcon';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const drawerWidth = 200
 
@@ -27,6 +29,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 const PrimaryDrawer = ({openDrawer, setToggleDrawer}) => {
+
 
   const handleDrawerClose =(e)=>{
     setToggleDrawer(false)
@@ -56,21 +59,31 @@ const PrimaryDrawer = ({openDrawer, setToggleDrawer}) => {
         </DrawerHeader>
         <List>
           <ListItem disablePadding >
+            <Link href="/">
               <ListItemButtonStyled>
-                <ListItemIcon>
-                   <Home/>
-                </ListItemIcon>
-                <ListItemText  primary={'Home'} />
-              </ListItemButtonStyled>
+                  <ListItemIcon>
+                    <Home/>
+                  </ListItemIcon>
+                  <ListItemText  primary={'Home'} />
+                </ListItemButtonStyled>
+            </Link>
+              
           </ListItem>
+
           <ListItem disablePadding>
-              <ListItemButtonStyled >
-                <ListItemIcon >
-                   <Psychology />
-                </ListItemIcon>
-                <ListItemText primary={'Quizzes'} />
-              </ListItemButtonStyled>
+            <Link href="/quizzes">
+            
+                <ListItemButtonStyled >
+                    <ListItemIcon >
+                      <Psychology />
+                    </ListItemIcon>
+                    <ListItemText primary={'Quizzes'} />
+                  </ListItemButtonStyled>
+            
+            </Link>
+              
           </ListItem>
+
           <ListItem disablePadding>
               <ListItemButtonStyled >
                 <ListItemIcon >

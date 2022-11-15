@@ -22,7 +22,7 @@ const PrimaryPayout = ({children}) => {
 
       {/* Main Content  */}
       <Box sx={{
-        backgroundColor:"lightblue",
+       
         padding: '55px 15px 0px 15px',
         height:"100vh"
         }}>
