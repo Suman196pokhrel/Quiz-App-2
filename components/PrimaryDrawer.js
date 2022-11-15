@@ -1,10 +1,20 @@
 import { Divider, Drawer, IconButton, List,ListItem, ListItemButton , ListItemText} from '@mui/material'
 import React from 'react'
 import {styled,useTheme} from '@mui/material/styles'
-import {Close, Inbox,Mail} from '@mui/icons-material'
+import {Close, Inbox,Mail, Home, Psychology, Settings} from '@mui/icons-material'
 import ListItemIcon from '@mui/material/ListItemIcon';
 
 const drawerWidth = 200
+
+const ListItemButtonStyled = styled(ListItemButton)(({theme})=>({
+  ':hover':{
+    backgroundColor:'#e1e1e1',
+    color:'black',
+    transition:'0.3s'
+  },
+  
+  
+}))
 
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -16,10 +26,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-const PrimaryDrawer = ({openDrawer, setOpenDrawer}) => {
+const PrimaryDrawer = ({openDrawer, setToggleDrawer}) => {
 
   const handleDrawerClose =(e)=>{
-    setOpenDrawer(false)
+    setToggleDrawer(false)
   }
 
 
@@ -34,42 +44,43 @@ const PrimaryDrawer = ({openDrawer, setOpenDrawer}) => {
       },
       
     }}
-    variant='persistent'
+    variant='temporary'
     anchor='left'
     open={openDrawer}
+    onClose={handleDrawerClose}
     >
       <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             <Close />
           </IconButton>
         </DrawerHeader>
-        <Divider />
         <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon sx={{color:"#1063eb"}}>
-                  {index % 2 === 0 ? <Inbox /> : <Mail />}
+          <ListItem disablePadding >
+              <ListItemButtonStyled>
+                <ListItemIcon>
+                   <Home/>
                 </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+                <ListItemText  primary={'Home'} />
+              </ListItemButtonStyled>
+          </ListItem>
+          <ListItem disablePadding>
+              <ListItemButtonStyled >
+                <ListItemIcon >
+                   <Psychology />
+                </ListItemIcon>
+                <ListItemText primary={'Quizzes'} />
+              </ListItemButtonStyled>
+          </ListItem>
+          <ListItem disablePadding>
+              <ListItemButtonStyled >
+                <ListItemIcon >
+                   <Settings />
+                </ListItemIcon>
+                <ListItemText primary={'Settings'} />
+              </ListItemButtonStyled>
+          </ListItem>
         </List>
-        <Divider />
-          <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon sx={{color:"#1063eb"}}>
-                    {index % 2 === 0 ? <Inbox /> : <Mail />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        
+        {/* <Divider /> */}     
 
     </Drawer>
   )

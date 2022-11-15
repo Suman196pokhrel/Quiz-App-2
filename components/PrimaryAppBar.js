@@ -5,7 +5,7 @@ import{Mail, Notifications,AccountCircle} from '@mui/icons-material'
 import MenuIcon from "@mui/icons-material/Menu"
 
 
-const PrimaryAppBar = ({setOpenDrawer}) => {
+const PrimaryAppBar = ({setToggleDrawer}) => {
 
   // for handeling mini-menus 
   const [anchorEl, setAnchorEl] = useState(null)
@@ -18,8 +18,8 @@ const PrimaryAppBar = ({setOpenDrawer}) => {
     setAnchorEl(null)
   }
 
-  const handleDrawerOpen = () => {
-    setOpenDrawer(true);
+  const handleDrawerToggle = () => {
+    setToggleDrawer(prev=>!prev);
   };
 
   return (
@@ -28,15 +28,15 @@ const PrimaryAppBar = ({setOpenDrawer}) => {
       flexGrow:1
     }}
     >
-      <AppBar position='fixed' >
-        <Toolbar variant='dense'>
+      <AppBar position='fixed' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <Toolbar variant='dense' >
           {/* Left */}
             <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label='menu'
-            onClick={handleDrawerOpen}
+            onClick={handleDrawerToggle}
             sx={{mr:2}}
             >
               <MenuIcon />

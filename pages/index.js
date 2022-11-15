@@ -6,15 +6,15 @@ import PrimaryDrawer from "../components/PrimaryDrawer";
 
 export default function Home() {
 
-  const [openDrawer, setOpenDrawer] = useState(false)
+  const [toggleDrawer, setToggleDrawer] = useState(false)
 
 
   return (
     <Box>
         <Box sx={{display:'flex'}}>
           <CssBaseline />
-           <PrimaryDrawer openDrawer={openDrawer} setOpenDrawer={setOpenDrawer}/>
-           <PrimaryAppBar  setOpenDrawer={setOpenDrawer}/>
+           <PrimaryDrawer openDrawer={toggleDrawer} setToggleDrawer={setToggleDrawer}/>
+           <PrimaryAppBar  setToggleDrawer={setToggleDrawer}/>
          
         </Box>
 
