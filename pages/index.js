@@ -1,10 +1,10 @@
-import QuizCarousal from "../components/QuizCarousal";
+import PrimaryAppBar from "../components/PrimaryAppBar";
 
 
 export default function Home() {
   return (
     <div>
-          <QuizCarousal />
+          <PrimaryAppBar />
     </div>
   )
 }

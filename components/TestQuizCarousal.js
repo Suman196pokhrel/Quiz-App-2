@@ -14,7 +14,7 @@ import {
     Button
 } from '@mui/material'
 
-const QuizCarousal = () => {
+const TestQuizCarousal = () => {
     var data = [
         {
             name: "Random Name #1",
@@ -36,6 +36,7 @@ const QuizCarousal = () => {
     return (<>
 
     <h2>General Carousal</h2>
+    
         <Carousel
         next = {(next,active)=>console.log(`we left ${active}, and are now at ${next}`)}
         prev={ (prev, active) => console.log(`we left ${active}, and are now at ${prev}`)}
@@ -145,4 +146,4 @@ const QuizCarousal = () => {
     )
 }
 
-export default QuizCarousal
+export default TestQuizCarousal
