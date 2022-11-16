@@ -11,7 +11,6 @@ const QuizId = ({data}) => {
   const router = useRouter()
   const [SingleTest, setSingleTest] = useState(null)
 
-
   return (<Box>
 
         <Box>
