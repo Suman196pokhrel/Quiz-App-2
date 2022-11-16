@@ -1,28 +1,14 @@
 import { Box } from '@mui/system';
 import React,{useState} from 'react'
-import useSWR from 'swr';
 import QuizCard from '../../components/QuizCard';
+import Quizzes from "../../data/tests"
 
-
-const dataFetcher  = async ()=>{
-    const data = await fetch("/api/quizList").then(res=>res.json())
-    return data
-}
-
-
-const QuizId = () => {
-
-    const {data, err} = useSWR('QuizList',dataFetcher)  
-
-    if (err) return <h1>{err}</h1>
-
-    if (!data) return <h1>Loading . . .</h1>
-
+const QuizId = ({data}) => {
 
   return (<Box>
 
         {data.map((quiz)=>(
-            <QuizCard data={quiz}/>
+            <QuizCard key={quiz.id} data={quiz}/>
         ))} 
     
     </Box>
@@ -30,3 +16,11 @@ const QuizId = () => {
 }
 
 export default QuizId;
+
+export async function getStaticProps(){
+  return {
+    props:{
+      data:Quizzes
+    }
+  }
+}

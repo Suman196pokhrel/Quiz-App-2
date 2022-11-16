@@ -1,12 +1,12 @@
 import { Drawer, IconButton, List,ListItem, ListItemButton , ListItemText} from '@mui/material'
 import React from 'react'
 import {styled} from '@mui/material/styles'
-import {Close,  Home, Psychology, Settings} from '@mui/icons-material'
+import {Close,  Home, Psychology, Settings, Spellcheck} from '@mui/icons-material'
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-const drawerWidth = 200
+const drawerWidth = 250
 
 const ListItemButtonStyled = styled(ListItemButton)(({theme})=>({
   ':hover':{
@@ -77,11 +77,21 @@ const PrimaryDrawer = ({openDrawer, setToggleDrawer}) => {
                     <ListItemIcon >
                       <Psychology />
                     </ListItemIcon>
-                    <ListItemText primary={'Quizzes'} />
+                    <ListItemText primary={'Practice Quizzes'} />
                   </ListItemButtonStyled>
             
             </Link>
               
+          </ListItem>
+
+          
+          <ListItem disablePadding>
+              <ListItemButtonStyled >
+                <ListItemIcon >
+                   <Spellcheck />
+                </ListItemIcon>
+                <ListItemText primary={'Vocab Builder'} />
+              </ListItemButtonStyled>
           </ListItem>
 
           <ListItem disablePadding>
@@ -92,6 +102,7 @@ const PrimaryDrawer = ({openDrawer, setToggleDrawer}) => {
                 <ListItemText primary={'Settings'} />
               </ListItemButtonStyled>
           </ListItem>
+
         </List>
         {/* <Divider /> */}     
 
