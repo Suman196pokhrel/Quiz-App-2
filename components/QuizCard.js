@@ -7,10 +7,21 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import { CardActionArea } from '@mui/material';
+import { useRouter } from 'next/router';
 
 const QuizCard = ({data}) => {
+  const router = useRouter()
+
+  const handleCardClick = (e)=>{
+    router.push(`/quizzes/${data.id}`)
+  }
+
   return (
     <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea
+      onClick={handleCardClick}
+      >
       <CardMedia
         component="img"
         height="140"
@@ -39,6 +50,7 @@ const QuizCard = ({data}) => {
         {/* <Button size="small">Share</Button>
         <Button size="small">Learn More</Button> */}
       </CardActions>
+      </CardActionArea>
     </Card>
   )
 }
